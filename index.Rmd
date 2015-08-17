@@ -1,0 +1,771 @@
+---
+title: "Notation, Special Characters, Formulas, Expressions"
+author: "ASM mielniczuk at outlook dot com"
+date: "`r Sys.Date()`"
+output: 
+  rmarkdown::html_document:
+    css: css/custom.css
+    theme: journal
+    hightlight: espresso
+    toc: true
+    toc_depth: 4
+    number_sections: true   
+---
+<a name = 'top'></a>[Notes Home - Internal Only](/index.html) | __Notation and Formulas in R__  | [Notation-Basic](Notation-Basic.html) | [Notation-Algebra](Notation-Algebra.html) |
+
+Learning by making mistakes (and trying to avoid same) is very effective. When notation attempts produce errors, I leave them in and label them as such.
+
+```{r opts, echo=FALSE, message=FALSE, warning=FALSE}
+# select custom.css for root, one, two, three, four directories above
+# css/custom.css | ../css/custom.css | ../../css/custom.css | ../../../css/custom.css | ../../../.../css/custom.css
+# start with messages and warnings to catch problems; switch to FALSE when resolved
+# sometimes only work within individual chunks
+require('knitr')
+opts_chunk$set(fig.path='img/notation-') # creates / uses directory for figures
+# apply fig.width and fig.height for size
+# modify with actual topic name
+```
+
+Fundamentally there are two ways to generate mathematical symbols within Rmarkdown.    
+1. R code that produces machine and person readable HTML (with the help of Javascript).   
+2. R code that generates graphic images.
+
+Within a web page, both are virtually identical. A right click on an HTML generated notation bring up a menu for the MathJax Javascript library.   
+![MathJax](img/notation-mathjax.png)
+
+In contrast, a right-click on notation presented as an image file bring up the 'save, copy image...' selections.   
+
+Notation, Equation, Formula, Expression
+============================
+
+Inspiration for this page and some of the source comes from the file intro.tex by:
+```
+...
+{\large Introduction to \LaTeX} \\ % \\ = new line
+\copyright 2006 by Harvey Gould \\
+December 5, 2006
+...
+```
+Right click on output in the browser, NOT in HTML preview, to view LaTeX or MathML
+
+Some basic definitions to introduce the language of math and logic.  
+
+## Number components and classification   
+Numbers have components. Also, numbers classify as real or imaginary. Complex numbers combine both. Applying notation together with rmarkdown allows for proper expression of numbers.
+
+### Number components
+
+__base:__ the number of different digits a counting system uses to represent numbers. The common decimal system uses base 10. The old english base 12 duodecimal system remains with a dozen (12), a foot (12) or a gross (144). The base 2 binary system uses 0 and 1. The base 16 hexadecimal system uses 0 through 9 and A,B,C,D,E,F.   
+
+__base number:__ the number that is to be raised to a power; eg in `9^2`, the base number is 9       
+__exponent or index:__ superscript number showing the number of times the base number is multiplied by itself; eg in `9^2`, the exponent or index number is 2           
+__negative exponent:__ a number with an exponent less than 0 is equal to its reciprocal with a positive exponent.  The reciprocal of  X<sup>a</sup> is $1 \over x^{-a}$   
+__power of a number:__ the number of times a base number is multiplied by itself.    
+
+`$3^2$` is $3^2$ or _3 squared_ or _3 to the power of two_ or expanded to ```3 x 3```   
+`$3^{-2}$` is $3^{-2}$ or _3 to the power of minus two_ or one-third squared or $1/3^2$          
+
+__reciprocal of a number__: 1 divided by the number. $1\over5$ is the reciprocal of 5. Show as $1 \over x$ or $x^{-1}$   
+
+
+### Real Numbers
+
+__natural numbers:__ numbers from one to infinity; $1,2,3,4, ...   $    
+__whole numbers:__ numbers from zero to infinity; zero plus natural numbers; $0,1,2,3, ...   $    
+__integers:__ positive and negative numbers and zero; whole numbers plus negatives of whole numbers;  $...,-3,-2,-1,0,1,2,3,...    $    
+__fractions:__ part of a whole number; all integers are fractions, but not all fractions are integers; $-3\over 1$ , $-2, 0, 4...$, but not $1\over3$, $2.45,...$    
+__rational numbers:__ integers, fractions, terminating and repeatng decimals; such as   
+$...,-3,-2,-1,0,1,2,3,... 1/4 = 0.25, 1/7 = 0.1428571428571428    $    
+__irrational numbers:__ nonterminating and non repeating decimals; cannot be written as a fraction; such as $\pi = 3.14159265359...$; the square root of 2 - $\sqrt{2}$ ; square root of 3  - $\sqrt{3}$ 
+
+Real numbers exclude imaginary numbers and $\infty$
+
+### Complex Number
+
+Combination of __Real Numbers__ plus __imaginary number__ . The unit of an imaginary number is $i$. $i$ is the square root of minus 1 and produces a negative result.
+
+Examples of imaginary numbers: `$1 + i$` produces $1 + i$, `$29 + 4i$` produces $29 + 4i$, `$0.6 - 3.4i$` produces $0.6 - 3.4i$, `$\sqrt{2 + i}$` produces  $\sqrt{2 + i}$    
+
+[Top](#top)
+
+
+Displaying within the browser (not html preview)
+=============
+
+Displaying special characters, formulas, mathematical expressions, and other notations through rmarkdown and knitr is done in several ways:
+
+* in-line calculation using r code   
+* in-line expression       
+* in-line using html      
+* in-line using unicode
+* in-line using LaTex   
+* in-line formula
+* in-line using mathjax   
+* applying R graphics using `plot` and `expression`    
+[Top](#top)
+
+## Quick Snippets
+
+1. In-line code and calculations using r code:   
+Counting  \` r 1 + 1 + 1 \`  children produces: Counting `r 1 + 1 + 1` children   
+2. In-line using markdown: `$3.14 \times 10^5$` produces $3.14 \times 10^5$   
+3. In-line using html: `3.14 &times; 10<sup>5</sup>; X<sub>i</sub> ; <sup>1</sup>&frasl;<sub>10</sub>` produces 3.14 &times; 10<sup>5</sup>  ; X<sub>i</sub> ; <sup>1</sup>&frasl;<sub>10</sub>  
+4. In line using unicode: not advised within rmarkdown with knitr; use latex equivalents. Limited examples `Infinity - &#8734; Doublestruck R, C, N, P, Q, Z - &#8477; &#8450; &#8469;  &#8473; &#8474; &#8484;` produce Infinity - &#8734; Doublestruck R, C, N, P, Q, Z - &#8477; &#8450; &#8469;  &#8473; &#8474; &#8484;  
+5. In-line using LaTex:   
+```
+\[\begin{aligned}   
+\dot{x} = \sigma(y-x) \\   
+\dot{y} = \rho x - y - xz \\   
+\dot{z} = -\beta z + xy   
+\end{aligned} \]   
+``` produces: 
+\[\begin{aligned}
+\dot{x} = \sigma(y-x) \\
+\dot{y} = \rho x - y - xz \\
+\dot{z} = -\beta z + xy
+\end{aligned} \]
+
+6. In-line equations, formulas have two types: embeded and display.
+
+*Embeded equations* start and end with a single $ sign and appear on the line. For example, Arithmetic mean is equal to `$\frac{1}{n} \sum{i=i} x_{i}$` produces:  Arithmetic mean is equal to $\frac{1}{n} \sum{i=i} x_{i}$   
+
+*Display equations* use double `$$` signs and centre on the next line. For example, Arithmetic mean is equal to `$$ \frac{1}{n} \sum{i=i} x_{i} $$` produces: Arithmetic mean is equal to $$ \frac{1}{n} \sum{i=i} x_{i} $$
+
+7. In-line using mathjax - complicated but creates create output that requires no image
+```
+<math display='block'>
+  <mrow>
+    <mi>x</mi><mo>=</mo>
+      <mfrac>
+        <!-- Start Numerator -->
+        <mrow><mo>&#x2212;</mo><mi>b</mi><mo>&#x00B1;</mo>
+          <msqrt>
+            <mrow>
+              <msup><mi>b</mi><mn>2</mn></msup><mo>&#x2212;</mo><mn>4</mn><mi>a</mi><mi>c</mi>
+            </mrow>
+          </msqrt>
+        </mrow>
+        <!-- Start Denominator -->
+        <mrow>
+          <mn>2</mn><mi>a</mi>
+        </mrow>
+      </mfrac>
+  </mrow>
+</math>
+```
+produces the quadratic formula:
+<math display='block'>
+  <mrow>
+    <mi>x</mi><mo>=</mo>
+      <mfrac>
+        <!-- Start Numerator -->
+        <mrow><mo>&#x2212;</mo><mi>b</mi><mo>&#x00B1;</mo>
+          <msqrt>
+            <mrow>
+              <msup><mi>b</mi><mn>2</mn></msup><mo>&#x2212;</mo><mn>4</mn><mi>a</mi><mi>c</mi>
+            </mrow>
+          </msqrt>
+        </mrow>
+        <!-- Start Denominator -->
+        <mrow>
+          <mn>2</mn><mi>a</mi>
+        </mrow>
+      </mfrac>
+  </mrow>
+</math>
+
+8. using plot and expression functions within the R graphics package.
+
+```{r plot, fig.height=3, fig.width=6}
+plot.new(); plot.window(c(0,6), c(6,0))  # x & y axes 0 to 6, y revers hi 2 lo
+yl <- expression(e^{-frac(1,2) * {log[10](x)}^2}) # sample expression assigned to yl
+text(3, 1, "Some text in the upper left.")
+text(5, 3, yl, cex = 2)                   # place text in centre of plot area, 
+                                          # cex doubles default size
+text(3, 5, "Some text in the  lower left.")
+box(lty = 'solid', col = 'red')           # draw a solid line box in red
+```
+
+[Top](#top)
+
+R Code, rmarkdown, LaTex to HTML 
+====================
+
+The following illustrate the conversion of mathematical expressions in R to HTML.
+
+## Arithmetic Operators that work in-line
+The following generated with rmarkdown.    
+
+Description | R syntax | Result
+--------- | -------- | ------
+x plus y | `$x + y$`  |   $x + y$       
+x minus y |  `$x - y$` |   $x - y$  
+x plus or minus y  |  `$x +- y$` | $x +- y$   
+x forward slash y  |   `$x/y$`   | $x/y$   
+x divided by y  | `$x / y$` | $x / y$      
+x times y  |  `$x * y$`  |   $x * y$      
+x cdot y  | `$x . y$`	|  $x . y$   
+x equals y  |  `$x = y$` |  $x = y$      
+x is not equal to y |  `$x != y$`	| $x != y$     
+x is less than y  | `$x < y$` |	$x < y$     
+x is less than or equal to y  | `$x <= y$` | $x <= y$
+x is greater than y  | `$x > y$` |   $x > y$     
+x is greater than or equal to y | `$x >= y$` |	$x >= y$    
+x is defined as y  | `$x == y$`	|  $x == y$   
+x superscript 2 |	`$x^2$` |  $x^2$ 
+lower case x in normal font   | `$(x)$` | $(x)$  
+upper case X in normal font | `$(X)$`   | $(X)$     
+
+## Expression and LaTex for Sets and/or Logic notation
+
+The expression format appears later in graphics plots. LaTex displays in HTML.
+
+Description | Expression |  LaTex | Output
+----------  |  ---------  |  --------- | ------
+x is a proper subset of y | `$x %subset$ y$`  | `$x \subset y$` | $x \subset y$
+x is a subset of y  | `$x %subseteq% y$`  |     `$x \subseteq y$`  |   $x \subseteq y$
+x is not a subset of y  | `$x %notsubset% y$`    |  `$x \nsubseteq y$` | $x \nsubseteq y$
+x is a proper superset of y | `$x %supset% y$` |	 `$x \supset y$` | $x \supset y$
+x is a superset of y |   `$x %supseteq%$ y`  |  `$x \supseteq$ y` | $x \supseteq y$   
+x is not a superset of y |   `$x %notsupseteq%$ y`  | `$x \nsupseteq$ y` | $x \nsupseteq y$
+x is an element of y |   `$x %in% y$` |   `$x \in y$` | $x \in y$
+x is not an element of y  |  `$x %notin% y$`	|  `$x \notin y$` | $x \notin y$
+x is the empty set | none | `$\emptyset$ or $\varnothing$` | $\emptyset$ or $\varnothing$
+
+A is the set of all agency open cases. If $\{A\}$ = $\{234, 455, 612, 619, 696\}$ then $455 \in \{A\}$, but $398 \notin \{A\}$     
+
+B is the set of open cases for central branch. If $\{B\}$ = $\{455, 612, 696\}$ then $\{B\} \subset \{A\}$
+
+
+[Top](#top)
+
+## Greek Alphabet
+
+Greek letters appear frequently in formulas and math notation. The following generate through in-line LaTex interpreted by rmarkdown.
+
+### Lower case Greek letters in-line  
+
+Description | R syntax | Result
+--------- | -------- | ------
+alpha  | `$\alpha$` | $\alpha$   
+beta | `$\beta$` | $\beta$    
+gamma | `$\gamma$` | $\gamma$   
+delta | `$\delta$` | $\delta$   
+epsilon | `$\epsilon$` | $\epsilon$   
+varepsilon | `$\varepsilon$` | $\varepsilon$   
+zeta | `$\zeta$` | $\zeta$ 
+eta  |  `$\eta$`  | $\eta$
+theta  | `$\theta$` |  $\theta$   
+vartheta | `$\vartheta$` | $\vartheta$   
+iota | `$i$` | $i$
+kappa  | `$\kappa$`  | $\kappa$     
+lambda  | `$\lamda$` | $\lambda$
+mu  | `$\mu$`  | $\mu$
+nu  | `$\nu$`  | $\nu$   
+xi  | `$\xi$`  | $\xi$
+omicron  | `$o$`  | $o$
+pi | `$\pi$` | $\pi$
+varpi | `$\varpi$`  | $\varpi$
+rho | `$\rho$`  | $\rho$   
+varrho | `$\varrho$` | $\varrho$
+sigma  | `$\sigma$`  | $\sigma$  
+varsigma  | `$\varsigma$` | $\varsigma$
+tau | `$\tau$` | $\tau$
+upsilon | `$\upsilon$` | $\upsilon$
+phi | `$\phi$` | $\phi$   
+varphi | `$\varphi$`  | $\varphi$    
+chi  | `$\chi$`   | $\chi$
+psi | `$\psi$`   | $\psi$   
+omega | `$\omega$` | $\omega$    
+
+[Top](#top)
+
+### Upper case Greek letters in-line
+
+Description | R syntax | Result
+--------- | -------- | ------
+Alpha  | `$A$` | $A$   
+Beta | `$B$` | $B$
+Gamma | `$\Gamma$` | $\Gamma$
+Delta | `$\Delta$` | $\Delta$
+Epsilon | `$E$` | $E$
+Zeta | `$Z$` | $Z$ 
+Eta  |  `$H$`  | $H$
+Theta  | `$\Theta$` |  $\Theta$
+Iota | `$I$` | $I$   
+Kappa  | `$\K$`  | $K$     
+Lambda  | `$\lamda$` | $\Lambda$
+Mu  | `$M$`  | $M$
+Nu  | `$N$`  | $N$   
+Xi  | `$\Xi$`  | $\Xi$
+Omicron  | `$O$`  | $O$
+Pi | `$\Pi$` | $\Pi$
+Rho | `$P$`  | $P$   
+Sigma  | `$\Sigma$`  | $\Sigma$  
+Tau | `$T$` | $T$
+Upsilon | `$\Upsilon$` | $\Upsilon$
+Phi | `$\Phi$` | $\Phi$   
+Chi  | `$X$`   | $X$
+Psi | `$\Psi$`   | $\Psi$   
+Omega | `$\Omega$` | $\Omega$    
+
+[Top](#top)
+
+## Symbols, Arrows, Binary Operators  
+
+Special symbols, arrows and binary operators appear throughout math and set notation. As above, these combine rmarkdown with LaTex. 
+
+### Arrows   
+
+Some arrows have two types. In most situations, the case of the first letter changes arrow output.
+
+Description | R syntax | Result
+--------- | -------- | ------
+left arrows | `$\leftarrow$, $\Leftarrow$`| $\leftarrow$, $\Leftarrow$        
+right arrows | `$\rightarrow$, $\Rightarrow$` |  $\rightarrow$, $\Rightarrow$    
+left right arrows | `$\leftrightarrow$, $\Leftrightarrow$`| $\leftrightarrow$, $\Leftrightarrow$      
+right left arrows | `$\rightleftharpoons$` | $\rightleftharpoons$      
+up arrows | `$\uparrow$, $\Uparrow$` | $\uparrow$, $\Uparrow$   
+down arrows | `$\downarrow$, $\Downarrow$`  |  $\downarrow$, $\Downarrow$ 
+maps to | `$\mapsto$, $\longmapsto$`   | $\mapsto$, $\longmapsto$  
+Northeast arrow | `$\nearrow$`   | $\nearrow$
+Southeast arrow | `$\searrow$`   |  $\searrow$
+Northwest arrow | `$\nwarrow$`   |  $\nwarrow$
+Southwest arrow | `$\swarrow$`   |  $\swarrow$
+left harpoon up | `$\leftharpoonup$`   | $\leftharpoonup$ 
+right harpoon up | `$\rightharpoonup$`   | $\rightharpoonup$
+left harpoon down | `$\leftharpoondown$`   |  $\leftharpoondown$
+right harpoon down | `$\leftharpoonup$`   |  $\leftharpoonup$
+right left harpoons | `$\rightleftharpoons$`   |  $\rightleftharpoons$
+
+[Top](#top)
+
+### Symbols   
+
+Description | R syntax | Result
+--------- | -------- | ------
+infinity | `$\infty$`  |  $\infty$ 
+for all | `$\forall$`  |  $\forall$   
+Re | `$\Re$`  |  $\Re$   
+Im | `$\Im$`  |  $\Im$  
+nabla | `$\nabla$`  |  $\nabla$   
+exists | `$\exists$`  |  $\exists$   
+not exists | `$\nexists$`  |  $\nexists$   
+partial | `$\partial$`  |  $\partial$  
+emptyset | `$\emptyset$`  |  $\emptyset$   
+null nothing | `$\varnothing$`  |  $\varnothing$   
+wp | `$\wp$`  |  $\wp$   
+complement | `$\complement$`  |  $\complement$   
+negation:  | `$\neg$`  |  $\neg$   
+continuation | `$\cdots$`  |  $\cdots$   
+square | `$\square$`  |  $\square$   
+blacksquare | `$\blacksquare$`  |  $\blacksquare$   
+triangle | `$\triangle$`  |  $\triangle$   
+surd | `$\surd$`  |  $\surd$   
+
+[Top](#top)
+
+### Binary Operation / Relation Symbols 
+
+Description | R syntax | Result
+--------- | -------- | ------
+union | `$A \cup B$` |   $A \cup B$
+intersect | `$A \cap B$` |      $A \cap B$     
+times | `$\times$` |      $\times$   
+o times | `$\otimes$` |      $\otimes$
+division | `$\div$`  |     $\div$
+not equal | `$\neq$` |      $\neq$
+less than or equal to | `$\leq$`  |     $\leq$   
+greater than or equal to | `$\geq$` |     $\geq$   
+in | `$\in$`   |   $\in$  
+not in | `$\notin$` |  $\notin$      
+perpendicular | `$\perp$`  |    $\perp$   
+subset | `$\subset$`  |     $\subset$   
+similar or equal to | `$\simeq$`  |     $\simeq$  
+approximates | `$\approx$`  |     $\approx$   
+wedge | `$\wedge$`   |    $\wedge$   
+vee | `$\vee$`   |   $\vee$  
+oplus | `$\oplus$`  |     $\oplus$   
+otimes / tensor product | `$\otimes$`  |     $\otimes$   
+box | `$\Box$`   |    $\Box$   
+box times | `$\boxtimes$`   |   $\boxtimes$   
+equivalence / identical to | `$\equiv$`   |    $\equiv$   
+congruent | `$\cong$`  |     $\cong$   
+
+[Top](#top)
+
+## Juxtaposition, Radicals, Lists and Elipsis in HTML
+
+Description | Expression | Output | 
+----------  |  ---------  | ------- 
+juxtapose x and y |  `$x*y$`  | $x*y$  
+juxtapose x, y, and z |  'paste(x,y,z)' | paste(x,y,z) 
+square root of x  |  `$\sqrt(x)$`   |  $\sqrt(x)$     
+
+
+$\list(x, y, z)$      
+This is   $...$	ellipsis (height varies)     
+This is   $\cdots$	ellipsis (vertically centred)     
+This is   $\ldots$	ellipsis (at baseline)  
+
+## Equations using Enhanced LaTex   
+Writing equations using LaTex within rmarkdown removes the need for `\begin{equation} \end{equation}` tags.
+```
+$$
+\Delta =\sum_{i=1}^N w_i (x_i - \bar{x})^2 
+$$
+```
+produces:
+
+$$
+\Delta =\sum_{i=1}^N w_i (x_i - \bar{x})^2 
+$$
+
+```
+$$
+P(x) = \frac{x - a}{b - a} , \nonumber
+$$
+```
+produces 
+
+$$
+P(x) = \frac{x - a}{b - a} 
+$$
+
+```
+$$
+g = \frac{1}{2} \sqrt{2\pi} 
+$$
+```
+produces
+
+$$
+g = \frac{1}{2} \sqrt{2\pi}
+$$
+
+We can also have different cases:
+
+$$
+\sum_i \vec A \cdot \vec B = -P\!\int\!\rv \cdot \hat{\mathbf{n}}\
+$$
+
+$$
+ dA = P\!\int \! {\vec \nabla} \cdot \rv\, dV
+$$
+
+Delimiters
+
+$$
+\left( \rule{1cm}{1cm} \right)
+$$
+
+[Top](#top)
+
+R Code to Graphics - using plot and expression
+==============================================
+
+This method generates a graphic rather than HTML. Percent signs within a plotting expression do not generate the same results that they would in html. There are variations between the syntax of the `expression` function for plotting and that of the LaTex equivalent for inline display as html.
+
+In this section we compare the two syntaxes with outputs in both plots and html.
+
+To view the full syntax applicable to 'expression` enter 'demo(plotmath)' at the command or view the page at https://stat.ethz.ch/R-manual/R-devel/library/grDevices/html/plotmath.html.
+
+## Spacing character
+
+The tilde `~` is a spacing character for plotting with `expression`. The following produces a title; leaving out the tilde creates an error. `plot(0,0, main=expression( A[2]~and~B[2] ))` This expression appears within the sample plot below.   
+
+## Operators
+
+```{r plot_operators}
+plot.new(); plot.window(c(0,10), c(6,0))  # x & y axes 0 to 10, y revers hi 2 lo  
+x1 <- expression(x + y) 
+x2 <- expression(x - y) 
+x3 <- expression(x/y)
+x4 <- expression(x %+-% y)     # x plus or minus y
+x5 <- expression(x %/% y)
+x6 <- expression(x %*% y)
+x7 <- expression(x %.% y)
+x8 <- expression(x[i]) 
+x9 <- expression(x^2)
+
+text(1, 1, 'x plus y')           # place at x=1 y=1 on reversed y axes
+text(3, 1, x1, cex = 1)       # place at x=4 y=1  normal text size
+text(1, 2, 'x minus y')           # place at x=1 y=2
+text(3, 2, x2, cex = 1)
+text(6, 1, 'x forward slash y')
+text(8, 1, x3, cex = 1)
+text(6, 2, 'x plus minus y')
+text(8, 2, x4, cex = 1) 
+
+text(1, 3, 'x divided by y')           
+text(3, 3, x5, cex = 1)       
+text(1, 4, 'x  times y')          
+text(3, 4, x6, cex = 1)
+text(6, 3, 'x cdot y')
+text(8, 3, x7, cex = 1)
+text(6, 4, 'x subscript y')
+text(8, 4, x8, cex = 1) 
+text(7, 5, 'x superscript y')
+text(8, 5, x9, cex = 1) 
+text(3, 5, expression( A[2]~and~B[2]))
+box(lty = 'solid', col = 'red')           # draw a solid line box in red
+
+```
+[Top](#top)
+
+## Juxtaposition, Radicals, Lists and Elipsis in graphics
+
+
+## Lists and elipsis
+
+```{r plot_juxtaposition}
+plot.new(); plot.window(c(0,10), c(10,0))  # x & y axes 0 to 10, y revers hi 2 lo  
+x1 <- expression(x*y) # juxtapose x and y
+x2 <- expression(paste(x, y, z)) # juxtapose x, y and z
+x3 <- expression(sqrt(x,y))     # yth root of x 
+x30 <- expression(sqrt(x))     # square root of x
+x4 <- expression(list(x, y, z)) #  comma-separated list
+x5 <- expression(...)   # regular elipsis, varying height
+x6 <- expression(cdots) # ellipsis (vertically centred)
+x7 <- expression(ldots)  #ellipsis (at baseline) 
+
+# text(4, 7, expression('x with a circumflex ' * hat(x)), cex = 1.2)
+
+text(1, 1, 'Juxtaposition')
+text(2, 2, 'juxtapose x and y')           # place at x=1 y=2 on reversed y axes
+text(4, 2, x1, cex = 1)                   # place at x=4 y=2  normal text size
+text(2, 3, 'juxtapose x, y, and z')       # place at x=1 y=3
+text(4, 3, x2, cex = 1)
+
+text(1, 4, 'Radicals')
+text(2, 5, 'square root of x')
+text(4, 5, x30, cex = 1)
+text(2, 6, 'yth root of x')
+text(4, 6, x3, cex = 1)
+
+text(1, 7, 'Lists and Elipses')
+text(2, 8, 'comma-separated list')
+text(4, 8, x4, cex = 1) 
+text(7, 8, 'variable height')
+text(9, 8, x5, cex = 1)
+text(2, 9, 'vertical centered')
+text(4, 9, x6, cex = 1) 
+text(7, 9, 'at baseline')
+text(9, 9, x7, cex = 1) 
+box(lty = 'solid', col = 'red')           # draw a solid line box in red
+```   
+   
+[Top](#top)
+
+## Special Symbols
+
+```{r plot_symbols, fig.height=8, fig.width=6}
+plot.new(); plot.window(c(0,10), c(27,0))
+text(4, 1, expression('x with a circumflex ' * hat(x)), cex = 1.2)
+text(4, 2.5, expression('x with a tilde  ' * tilde(x)), cex = 1.2) 
+text(4, 4, expression('x with a dot  ' * dot(x)), cex = 1.2) 
+text(4, 5.5, expression('x with a ring  ' * ring(x)), cex = 1.2)
+text(4, 7, expression('x with a bar  ' * bar(x)), cex = 1.2)
+text(4, 8.5, expression('xy with wide circumflex  ' * widehat(xy)), cex = 1.2)
+text(4, 10, expression('xy with wide tilde  ' * widetilde(xy)), cex = 1.2)
+text(4, 11.5, expression('x double-arrow y   ' * x %<->% y), cex = 1.2)
+text(4, 13, expression('x right-arrow y   ' * x %->% y), cex = 1.2)
+text(4, 14.5, expression('x up-arrow y   ' * x %up% y), cex = 1.2)
+text(4, 16, expression('x down-arrow y   ' * x %down% y), cex = 1.2)
+text(4, 17.5, expression('x is equivalent to y   ' * x %<=>% y), cex = 1.2)
+text(4, 19, expression('x implies y ' * x %=>% y), cex = 1.2)
+text(4, 20.5, expression('y implies x  ' * x %<=% y), cex = 1.2)
+text(4, 22, expression('x double-up-arrow y ' * x %dblup% y), cex = 1.2)
+text(4, 23.5, expression('x double-down-arrow y ' * x %dbldown% y), cex = 1.2)
+text(4, 25, expression('infinity symbol ' *  infinity ), cex = 1.2)
+text(4, 26.5, expression('partial differential symbol ' *  partialdiff ), cex = 1.2)
+
+```
+   
+[Top](#top)       
+ 
+## Greek, Angles, Degrees
+
+```{r plot_GreekAngleDegree}
+plot.new(); plot.window(c(0,10), c(10,0))
+text(4, 1, expression('alpha - omega lower case Greek ' * alpha - omega), cex = 1.2)
+text(4, 2.5, expression('Alpha - Omega Upper Case Greek ' * Alpha - Omega), cex = 1.2)
+text(4, 4, expression('Cursive Greek symbols ' * theta1 - phi1 - sigma1 - omega1), cex = 1.2) 
+text(4, 5.5, expression('Capital upsilon with hook ' * Upsilon1), cex = 1.2) 
+text(4, 7, expression('32 degrees   ' * 32*degree), cex = 1.2) 
+text(4, 8.5, expression('60 minutes of angle   ' * 60*minute), cex = 1.2)
+text(4, 10, expression('30 seconds of angle    ' * 30*second), cex = 1.2)
+```
+   
+[Top](#top)       
+
+## Display Text and Spacing
+
+```{r plot_text}
+plot.new(); plot.window(c(0,10), c(12,0))
+text(4, 1, expression('x in normal text with extra spacing ' * displaystyle(x)), cex = 1.2)
+text(4, 2.5, expression('x in normal text ' * textstyle(x)), cex = 1.2)
+text(4, 4, expression('x in small size  ' * scriptstyle(x)), cex = 1.2) 
+text(4, 5.5, expression('x in very small size ' * scriptscriptstyle(x)), cex = 1.2) 
+text(4, 7, expression('x underlined  ' * underline(x)), cex = 1.2) 
+text(4, 8.5, expression('extra space between x and y   ' * x ~~ y), cex = 1.2)
+text(4, 10, expression('gap for 0 but do not draw ' * x + phantom(0) + y), cex = 1.2)
+text(4, 11.5, expression('vertical gap for 0 but do not draw ' * x + over(1, phantom(0))), cex = 1.2)     
+```
+   
+[Top](#top) 
+  
+## Fractions, Integral, Union, Intersect
+
+```{r plot_fraction, fig.height=6, fig.width=6}
+plot.new(); plot.window(c(0,10), c(12,0))
+text(4, 1, expression('x over y ' * frac(x, y)), cex = 1.2)
+text(4, 3, expression('x over y ' * over(x, y)), cex = 1.2)
+text(4, 4.5, expression('x atop y   ' * atop(x, y)), cex = 1.2) 
+text(4, 5.75, expression('sum x[i] for i equals 1 to n ' *sum(x[i], i==1, n)), cex = 1.2) 
+text(5, 7.25, expression('product of P(X=x) for all values of x  ' * prod(plain(P)(X==x), x)), cex = 1.2) 
+text(4, 8.5, expression('definite integral of f(x) wrt x  ' * integral(f(x)*dx, a, b)), cex = 1.2)
+text(4, 10, expression('union of A[i] for i equals 1 to n ' * union(A[i], i==1, n)), cex = 1.2)
+text(4, 11.5, expression('intersection of A[i] ' * intersect(A[i], i==1, n)), cex = 1.2)     
+```
+   
+[Top](#top)       
+
+## Limits, operands, delimiters
+
+```{r plot_limit, fig.height=6, fig.width=6}
+plot.new(); plot.window(c(0,10), c(12,0))
+text(5, 1, expression('limit of f(x) as x tends to 0 ' * lim(f(x), x %->% 0)), cex = 1.2)
+text(5, 2.25, expression('minimum of g(x) for x greater than 0  ' * min(g(x), x > 0)), cex = 1.2)
+text(4, 3.25, expression('infimum of S ' * inf(S)), cex = 1.2) 
+text(4, 4, expression('supremum of S ' * sup(S)), cex = 1.2) 
+text(4, 5, expression('normal operator precedence  ' * x^y + z), cex = 1.2) 
+text(4, 6.25, expression('visible grouping of operands   ' * x^(y + z)), cex = 1.2)
+text(4, 7.5, expression('invisible grouping of operands  ' * x^{y + z}), cex = 1.2)
+text(4, 8.75, expression('specify left and right delimiters  ' * group("(",list(a, b),"]")), cex = 1.2)  
+text(4, 10, expression('use scalable delimiters ' * bgroup("(",atop(x,y),")")), cex = 1.2) 
+text(4, 11.25, expression('special delimiters ' * group(lceil, x, rceil)), cex = 1.2) 
+```
+   
+[Top](#top) 
+
+## Complex expressions within a plot
+Sometimes displaying formulas within the plot assists understanding. The following is only illustration of method; the plot has no relationship to the displayed formulas.
+
+```{r plotdemo}
+plot(1:10, 1:10)
+# text(2, 9, expression(x %+-% y))
+# text(2.2, 8, 'expression(x %+-% y)')
+text(2, 9, expression(hat(beta) == (X^t * X)^{-1} * X^t * y),
+     cex = .8)
+text(3.2, 6, "expression(hat(beta) == (X^t * X)^{-1} * X^t * y)",
+     cex = .8)
+text(4, 3.9, expression(bar(x) == sum(frac(x[i], n), i==1, n)))
+text(3.5, 2.7, "expression(bar(x) == sum(frac(x[i], n), i==1, n))",
+     cex = .8)
+text(8, 5, expression(paste(frac(1, sigma*sqrt(2*pi)), " ",
+                            plain(e)^{frac(-(x-mu)^2, 2*sigma^2)})),  
+     cex = 1.2)
+
+```
+
+For alternative view of output for `expression` in r, enter `demo(plotmath)` at the command line.
+
+[Top](#top)    
+
+Additional Notes
+=================
+
+Special Characters in HTML
+--------------------------
+   
+The goal of creating printable web pages requires understanding the creation of special characters in HTML. Reproduce this http://www.utexas.edu/learn/html/spchar.html harmonization of windows and mac O/S system outputs.
+
+Both Windows and Mac operating systems offer special characters for accented letters and other non-Latin characters, currency symbols, math symbols and others through the use of key combinations. 
+
+
+## Problematic conversions 
+
+Following LaTex do not convert within rmarkdown:   
+
+Description | Syntax | Output
+---------  | -------  |  --------
+Varphi | `$\Varphi$`  | $\Varphi$    
+Vartheta | `$\Vartheta$` | $\Vartheta$    
+Varsigma  | `$\Varsigma$` | $\Varsigma$   
+Varpi | `$\Varpi$`  | $\Varpi$   
+Varepsilon | `$\Varepsilon$` | $\Varepsilon$   
+Varrho | `$\Varrho$` | $\Varrho$    
+x is approximately equal to y  |  `$x ~~ y$` |  $x ~~ y$     
+x and y are congruent |  `$x =~ y$` |  $x =~ y$   
+x is proportional to y  | `$x prop y$` |  $x prop y$   
+x subscript i  | `$x[i]$`  | $x[i]$     
+
+[top](#top) 
+
+References
+===========
+
+Math:    
+* http://simple.wikipedia.org/wiki/Base_(mathematics)   
+* http://www.mathsisfun.com/numbers/complex-numbers.html   
+* http://www.mathsisfun.com/sets/sets-introduction.html   
+* http://www.statmethods.net/advgraphs/parameters.html  
+* http://www.mathsisfun.com/algebra/equation-formula.html    
+* http://math.stackexchange.com/questions/38155/what-is-the-difference-between-equation-and-formula    
+* http://www.stephenwolfram.com/publications/mathematical-notation-past-future/   
+* http://amathsdictionaryforkids.com/dictionary.html   
+* http://press.princeton.edu/chapters/gowers/gowers_I_2.pdf  
+
+R-specific:   
+* http://astrostatistics.psu.edu/su07/R/html/grDevices/html/plotmath.html - syntax   
+* http://vis.supstat.com/2013/04/mathematical-annotation-in-r/ - how it should look
+
+Symbols:    
+* http://www.rapidtables.com/math/symbols/Basic_Math_Symbols.htm   
+* https://www.sharelatex.com/learn/List_of_Greek_letters_and_math_symbols   
+* http://www.scientificpsychic.com/etc/square-root.html   
+* http://www.stat.berkeley.edu/~paciorek/computingTips/Using_Greek_letters_other_m.html   
+* http://www.utexas.edu/learn/html/spchar.html   
+* http://physics.clarku.edu/sip/tutorials/TeX/intro.html combined    
+* http://symbolcodes.tlt.psu.edu/bylanguage/mathchart.html    
+
+[Top](#top)  
+
+Dev Notes
+========== 
+
+### Equation vs Formula
+
+"An equation is any expression with an equals sign, so your example is by definition an equation. Equations appear frequently in mathematics because mathematicians love to use equal signs.
+
+A formula is a set of instructions for creating a desired result. Non-mathematical examples include such things as chemical formulas (two H and one O make H2O), or the formula for Coca-Cola (which is just a list of ingredients). You can argue that these examples are not equations, in the sense that hydrogen and oxygen are not "equal" to water, yet you can use them to make water.
+
+Mathematicians have long since realized that when it comes to numbers, certain formulas can be expressed most succinctly as equations. For example, the Pythagorean Theorem `a2+b2=c2` can be thought of as a formula for finding the length of the side of a right triangle, but it turns out that such a length is always equal to a combination of the other two lengths, so we can express the formula as an equation. The key idea is that the equation captures not just the ingredients of the formula, but also the relationship between the different ingredients.
+
+In your case, "mpg = distance/gallons" is best understood as "a formula in the form of an equation", which means that in this instance the two words are interchangeable."
+
+ToDo: Create summary page on language and grammar of mathematics
+
+Description | Expression | Output | Alternative | Output
+----------  |  ---------  | ------- | --------- | ------
+x plus y    | `x + y` | x + y | same  |  same
+x minus y   | `x - y`  | x - y | same  |  same
+x forwardslash y | `x/y` | x/y |  same  |  same
+x plus or minus y | `x %+-% y` | x %+-% y | `x+-y` | x+-y
+x divided by y | `x %/% y` | x %/% y | `x/y`  | x/y
+x times y | `x %*% y` |	htmlerr  | `$x*y$` | $x*y$   
+x cdot y  | `x %.% y`  | x %.% y | `x.y` | x.y
+x subscript i | `x[i]` 	| x[i]  | `$x_{i}$` | $x_{i}$
+x superscript 2 | `x^2` | x^2   | `$x^{i}$` or `$x^i$` | $x^{i}$  $x^i$
+
+```{r sessioninfo}
+sessionInfo()
+```
+
+> "May you do good and not evil."   
+> "May you find forgiveness for yourself and forgive others."   
+> "May you share freely, never taking more than you give."   
+
+
+

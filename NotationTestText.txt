@@ -1,0 +1,90 @@
+This is $x + y$ 	x plus y     
+This is $x - y$	x minus y    
+This is $x*y$	juxtapose x and y     
+This is $x/y$	x forwardslash y     
+This is   $x %+-% y$	x plus or minus y     
+This is   $x %/% y$	x divided by y     
+This is   $x %*% y$	x times y     
+This is   $x %.% y$	x cdot y     
+This is   $x[i]$	x subscript i     
+This is   $x^2$	x superscript 2     
+This is   $paste(x, y, z)$	juxtapose x, y, and z     
+This is   $sqrt(x)$	square root of x     
+This is   $sqrt(x, y)$	yth root of x     
+This is   $x == y$	x equals y     
+This is   $x != y$	x is not equal to y     
+This is   $x < y$	x is less than y     
+This is   $x <= y$	x is less than or equal to y     
+This is   $x > y$	x is greater than y     
+This is   $x >= y$	x is greater than or equal to y     
+This is   $x %~~% y$	x is approximately equal to y     
+This is   $x %=~% y$	x and y are congruent     
+This is   $x %==% y$	x is defined as y     
+This is   $x %prop% y$	x is proportional to y     
+This is   $plain(x)$	draw x in normal font     
+This is   $bold(x)$	draw x in bold font     
+This is   $italic(x)$	draw x in italic font     
+This is   $bolditalic(x)$	draw x in bolditalic font     
+This is   $list(x, y, z)$	comma-separated list     
+This is   $...$	ellipsis (height varies)     
+This is   $cdots$	ellipsis (vertically centred)     
+This is   $ldots$	ellipsis (at baseline)     
+This is   $x %subset% y$	x is a proper subset of y     
+This is   $x %subseteq% y$	x is a subset of y     
+This is   $x %notsubset% y$	x is not a subset of y     
+This is   $x %supset% y$	x is a proper superset of y     
+This is   $x %supseteq%$ y	x is a superset of y     
+This is   $x %in% y$	x is an element of y     
+This is   $x %notin% y$	x is not an element of y     
+This is   $hat(x)$	x with a circumflex     
+This is   $tilde(x)$	x with a tilde     
+This is   $dot(x)$	x with a dot     
+This is   $ring(x)$	x with a ring     
+This is   $bar(xy)$	xy with bar     
+This is   $widehat(xy)$	xy with a wide circumflex     
+This is   $widetilde(xy)$	xy with a wide tilde     
+This is   $x %<->% y$	x double-arrow y     
+This is   $x %->% y$	x right-arrow y     
+This is   $x %<-% y$	x left-arrow y     
+This is   $x %up% y$	x up-arrow y     
+This is   $x %down% y$	x down-arrow y     
+This is   $x %<=>% y$	x is equivalent to y     
+This is   $x %=>% y$	x implies y     
+This is   $x %<=% y$	y implies x     
+This is   $x %dblup% y$	x double-up-arrow y     
+This is   $x %dbldown% y$	x double-down-arrow y     
+This is   $alpha – omega$	Greek symbols     
+This is   $Alpha – Omega$	uppercase Greek symbols     
+This is   $theta1, phi1, sigma1, omega1$	cursive Greek symbols     
+This is   $Upsilon1$	capital upsilon with hook     
+This is   $infinity$	infinity symbol     
+This is   $partialdiff$	partial differential symbol     
+This is   $32*degree$	32 degrees     
+This is   $60*minute$	60 minutes of angle     
+This is   $30*second$	30 seconds of angle     
+This is   $displaystyle(x)$	draw x in normal size (extra spacing)     
+This is   $textstyle(x)$	draw x in normal size     
+This is   $scriptstyle(x)$	draw x in small size     
+This is   $scriptscriptstyle(x)$	draw x in very small size     
+This is   $underline(x)$	draw x underlined     
+This is   $x ~~ y$	put extra space between x and y     
+This is   $x + phantom(0) + y$	leave gap for "0", but don't draw it     
+This is   $x + over(1, phantom(0))$	leave vertical gap for "0" (don't draw)     
+This is   $frac(x, y)$	x over y     
+This is   $over(x, y)$	x over y     
+This is   $atop(x, y)$	x over y (no horizontal bar)     
+This is   $sum(x[i], i==1, n)$	sum x[i] for i equals 1 to n     
+This is   $prod(plain(P)(X==x), x)$	product of P(X=x) for all values of x     
+This is   $integral(f(x)*dx, a, b)$	definite integral of f(x) wrt x     
+This is   $union(A[i], i==1, n)$  union of A[i] for i equals 1 to n     
+This is   $intersect(A[i], i==1, n)$	intersection of A[i]     
+This is   $lim(f(x), x %->% 0)$	limit of f(x) as x tends to 0     
+This is   $min(g(x), x > 0)$	minimum of g(x) for x greater than 0     
+This is   $inf(S)$	infimum of S     
+This is   $sup(S)$	supremum of S     
+This is   $x^y + z$	normal operator precedence     
+This is   $x^(y + z)$	visible grouping of operands     
+This is   $x^{y + z}$	invisible grouping of operands     
+This is   $group("(",list(a, b),"]")$	specify left and right delimiters     
+This is   $bgroup("(",atop(x,y),")")$	use scalable delimiters     
+This is   $group(lceil, x, rceil)$	special delimiters     

@@ -1,0 +1,7 @@
+name: Publish Document
+account: rpubs
+server: rpubs.com
+bundleId:
+        https://api.rpubs.com/api/v1/document/100751/7c6fe48c9b4d46009741a44c6624c3e2
+url: http://rpubs.com/mielniczuk/100751/edit
+when: 1439725940.42032

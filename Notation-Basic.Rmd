@@ -1,0 +1,631 @@
+---
+title: "Notation Basics"
+author: "ASM mielniczuk at outlook dot com"
+date: "`r Sys.Date()`"
+output: 
+  rmarkdown::html_document:
+    css: css/custom.css
+    theme: journal
+    hightlight: espresso
+    toc: true
+    toc_depth: 4
+    number_sections: true    
+---
+
+<a name = 'top'></a>[Notes Home - Internal Only](/index.html) | [Notation Home](index.html) | __Notation Basic__  | [Notation-Algebra](Notation-Algebra.html)
+
+A practice document to generate  components of mathematical expressions, formulas and symbolic logic. These include numbers, fractions, operators, Latin letters,  parentheses/brackets, exponents,  sub/super-scripts, Greek letters, symbols and other elements.
+
+In order to encourage learning from errors and avoiding same, error labels mark reasonable, but failed results. There may be LaTeX solutions to these errors and there may be better/preferred LaTeX commands and syntax to produce the desired results. My goal was to create demonstrable, re-usable results.
+
+Embedded Notations
+=================
+
+These appear within a line and begin with a single `$` sign. This practice document displays results for various keyboard only, R code delimiter and LaTex approaches to notation:    
+
+* text - using keyboard characters exclusively without any code;    
+* code delimiters - using a single backtick before and after the text to invoke markdown inline r code;        
+* html/markdown - applying HTML and/or markdown to produce the desired display;   
+* inline keyboard - applying the inline LaTeX dollar sign delimiters to the text;    
+* inline LaTeX - applying both the inline LaTeX dollar sign delimiters and specific LaTeX commands.    
+
+## Sizing
+
+LaTeX uses the following 10 notations for font sizing: 
+
+`1.\tiny 
+2.\scriptsize 
+3.\footnotesize 
+4.\small 
+5.\normalsize 
+6.\large 
+7.\Large 
+8.\LARGE 
+9.\huge 
+10.\Huge`
+
+Latex uses the following 4 notations for sizing parentheses: `1. \big 2.\Big 3.\bigg 4.\Bigg`
+
+## Numbers
+text: 0 1 2 3 4 5 6 7 8 9   
+code delimiters: `0 1 2 3 4 5 6 7 8 9`    
+html/markdown: `**0 1 2 3 4 5 6 7 8 9**` to produce bold **0 1 2 3 4 5 6 7 8 9** 
+and `*0 1 2 3 4 5 6 7 8 9*` to produce italic *0 1 2 3 4 5 6 7 8 9*     
+inline keyboard:  `$0 1 2 3 4 5 6 7 8 9$` to produce $0 1 2 3 4 5 6 7 8 9$ 
+
+Note below the failure of `\big` applied to numbers (and all other keyboard characters)
+
+R LaTeX Syntax | Result
+-------- | ------   
+`$\big 0 1 2 3 4 5 6 7 8 9$` | $\big  0 1 2 3 4 5 6 7 8 9$   error   
+`$\Big 0 1 2 3 4 5 6 7 8 9$` | $\Big 0 1 2 3 4 5 6 7 8 9$   error   
+`$\bigg 0 1 2 3 4 5 6 7 8 9$` | $\bigg 0 1 2 3 4 5 6 7 8 9$   error   
+`$\Bigg 0 1 2 3 4 5 6 7 8 9$` | $\Bigg 0 1 2 3 4 5 6 7 8 9$   error
+`$\large 0 1 2 3 4 5 6 7 8 9$` | $\large 0 1 2 3 4 5 6 7 8 9$
+`$\Large 0 1 2 3 4 5 6 7 8 9$` | $\Large 0 1 2 3 4 5 6 7 8 9$
+`$\LARGE 0 1 2 3 4 5 6 7 8 9$` | $\LARGE 0 1 2 3 4 5 6 7 8 9$
+`$\huge 0 1 2 3 4 5 6 7 8 9$` | $\huge 0 1 2 3 4 5 6 7 8 9$
+`$\Huge 0 1 2 3 4 5 6 7 8 9 $` | $\Huge 0 1 2 3 4 5 6 7 8 9$
+
+[Top](#top)   
+
+### Fractions
+
+text: 1/4   
+code delimiters: `1/4`   
+html/markdown: `**1/4**` to produce **1/4** in bold and `*1/4*` to produce *1/4* in italic    
+inline keyboard: $1/4$    
+inline LaTeX: `$1 \over 4$`  to produce  $1 \over 4$ alternatively `$\frac{1}{4}$` to produce  $\frac{1}{4}$  or `$\dfrac{1}{4}$` to produce the larger $\dfrac{1}{4}$ 
+
+[Top](#top)   
+
+### Exponents / Super-scripts / Index / Power
+
+text: 8 to the power of 3; 8^3; 8 * 8 * 8; 8 sup 3   
+code delimiters: `8^3`;`8*8*8`   
+html: `8 <sup> 3 </sup>` produces 8 <sup> 3 </sup>   
+inline keyboard: `$8^3$ ; $8 * 8 * 8$ ; $8 sup 3$` produces $8^3$ ; $8 * 8 * 8$ ; $8 sup 3$      
+inline latex: `$8^{3}$` produces $8^{3}$
+
+[Top](#top)   
+
+#### Exponents with Negative Numbers / Reciprocals
+
+text: 8 to the power of -3; 8^-3; -8 * -8 * -8; 8 sup -3   
+code delimiters: `8^-3`;`-8 * -8 *-8`   
+html: `8 <sup> -3 </sup>` produces 8 <sup> -3 </sup>   
+inline keyboard: `$8^-3$ ; $-8 * -8 * -8$ ; $8 sup -3$` produces $8^-3$ (error); $-8 * -8 * -8$ ; $8 sup -3$      
+inline latex: `$8^{-3}$` produces $8^{-3}$
+
+[Top](#top)   
+
+### Sub-scripts
+
+text: 8_3; 8 sub 3   
+code delimiters: `8_3`;`8 sub 3`   
+html: `8 <sub> 3 </sub>` produces 8 <sub> 3 </sub>   
+inline keyboard: `$8_3$ ; $8 sub 3$` produces $8_3$; $8 sub 3$      
+inline latex: `$8_{3}$` produces $8_{3}$   
+
+[Top](#top)   
+
+## Multiplication, Division, Square Root Basics
+
+__Multiplication:__     
+text:  (X * Y)  or (x * y)   
+code delimiters: `(X * Y)` or `(x * y)`   
+inline keyboard: $(X * Y)$ or $(x * y)$    
+inline LaTeX: `$x \times y$`  |  $x \times y$ or `$X \times Y$`  |  $X \times Y$   
+inline LaTeX Large: `$\Large x \times y$`  |  $\Large x \times y$ or `$\Large X \times Y$`  |  $\Large X \times Y$   
+
+__Division:__   
+text: Y/X or y/x   
+code delimiters: `X/Y` or `x/y`       
+inline keyboard: $X/Y$ or $x/y$   
+inline LaTeX: `$X \div Y$`  |  $X \div Y$ or `$x \div y$`  |  $x \div y$   
+inline LaTeX Large: `$\Large X \div Y$`  |  $\Large X \div Y$ or `$\Large x \div y`  |  $\Large x \div y$   
+
+__Square Roots:__   
+text: sqare root of 3   
+code delimiters: `square root of 3`   
+inline keyboard: `$square root of 3$` | $square root of 3$ (error)       
+inline LaTeX: `$\sqrt{3}$` |  $\sqrt{3}$   
+inline LateX Large: `$\Large \sqrt{3}$` | $\Large \sqrt{3}$   
+
+[Top](#top)   
+
+
+## Letters
+
+Some of the more common letters used in math expressions and formulas.
+
+lower case text no markup: a b c d e f m n p q r s t v w x y z   
+upper case text no markup: A B C D E F M N P Q R S T V W X Y Z   
+code delimiters: `a b c d e f m n p q r s t v w x y z` and `A B C D E F M N P Q R S T V W X Y Z`   
+inline keyboard: `$a b c d e f m n p q r s t v w x y z$` to produce $a b c d e f m n p q r s t v w x y z$   
+and `$A B C D E F M N P Q R S T V W X Y Z$` to produce $A B C D E F M N P Q R S T V W X Y Z$
+
+R LaTeX Syntax | Result
+-------- | ------   
+`$\large a b c d e f i m n p q r s t v w x y z$` | $\large a b c d e f i m n p q r s t v w x y z$
+`$\Large a b c d e f i m n p q r s t v w x y z$` | $\Large a b c d e f i m n p q r s t v w x y z$
+`$\LARGE a b c d e f i m n p q r s t v w x y z$` | $\LARGE a b c d e f i m n p q r s t v w x y z$
+`$\huge a b c d e f i m n p q r s t v w x y z$` | $\huge a b c d e f i m n p q r s t v w x y z$
+`$\Huge a b c d e f i m n p q r s t v w x y z$` | $\Huge a b c d e f i m n p q r s t v w x y z$
+`$\large A B C D E F I M N P Q R S T V W X Y Z$` | $\large A B C D E F I M N P Q R S T V W X Y Z$
+`$\Large A B C D E F I M N P Q R S T V W X Y Z$` | $\Large A B C D E F I M N P Q R S T V W X Y Z$
+`$\LARGE A B C D E F I M N P Q R S T V W X Y Z$` | $\LARGE A B C D E F I M N P Q R S T V W X Y Z$
+`$\huge A B C D E F I M N P Q R S T V W X Y Z$` | $\huge A B C D E F I M N P Q R S T V W X Y Z$
+`$\Huge A B C D E F I M N P Q R S T V W X Y Z $` | $\Huge A B C D E F I M N P Q R S T V W X Y Z$
+
+[Top](#top)   
+
+## Set and Logic Operators
+
+Note that generating double struck letters requires specific reference to the LaTex `\mathbb{set}` command.
+
+Description | R LaTeX Syntax | Result
+-----| -------- | ------ 
+the empty set | `$\emptyset$`,`$\varnothing$` |   $\emptyset$ , $\varnothing$
+set of natural numbers | `$\mathbb{N}$` |  $\mathbb{N}$
+set of integers | `$\mathbb{Z}$` |  $\mathbb{Z}$
+set of rational numbers | `$\mathbb{Q}$` |  $\mathbb{Q}$
+set of algebraic numbers | `$\mathbb{A}$` |  $\mathbb{A}$
+set of real numbers | `$\mathbb{R}$` |  $\mathbb{R}$
+set of complex numbers | `$\mathbb{C}$` |  $\mathbb{C}$
+is a member of | `$\in$` |  $\in$
+is not a member of  | `$\notin$` |  $\notin$
+owns (has member) | `$\ni$` |  $\ni$
+is proper subset of  | `$\subset$` |  $\subset$
+is subset of  | `$\subseteq$` |  $\subseteq$
+is proper superset of  | `$\supset$` |  $\supset$
+is superset of   | `$\supseteq$` | $\supseteq$
+set union  | `$\cup$` | $\cup$
+set intersection   | `$\cap$` | $\cap$
+set difference   | `$\setminus$` | $\setminus$
+there exists at least one   | `$\exists$` | $\exists$
+there exists one and only one  | `$\exists!$` | $\exists!$
+there is no  | `$\nexists$` | $\nexists$
+for all   | `$\forall$` | $\forall$
+not (logical NOT)  | `$\neg$` | $\neg$
+or (logical OR)  | `$\lor$` | $\lor$
+and (logical AND)   | `$\land$` | $\land$
+implies  | `$\implies$` | $\implies$
+(preferred right implication)  | `$\Rightarrow$` | $\Rightarrow$
+is implied by (only if)  | `$\Longleftarrow$` | $\Longleftarrow$
+(preferred left implication)  | `$\Leftarrow$` | $\Leftarrow$
+is equivalent to (if and only if, iff)  | `$\iff$` | $\iff$
+(preferred equivalence) | `$\Leftrightarrow$` | $\Leftrightarrow$
+top | `$\top$` | $\top$
+bottom | `$\bot$` | $\bot$
+
+
+[Top](#top) 
+
+## Operators - Unary, Binary, Relation
+
+Unary operators work on only 1 operand. For example, +2, -5, 5!. Binary ones represent calculation on two operands. Most common are the addition, subtraction, multiplication and division of elementary math. For example, (2 - 5), 18/3, etc. Relational ones compare two sets of values.
+
+### Operators avialable within standard keyboards
+
+text: + - / * = <> => =< ~ ! # $ % ^ + <>   
+code delimiters: `+ - / * = <> => =< ~ ! #  % ^ + <>`   
+inline keyboard: 
+`$+$ $-$ $/$ $*$` to produce $+$ $-$ $/$ $*$    
+`$=$ $<>$ $=>$ $=<$` to produce $=$ $<>$ $=>$ $=<$    
+`$~$ $!$ $#$ $%$ $^$` to produce   $~$ error $!$ $#$ $%$ error $^$   
+
+Most operators respond to the `\tiny to \Huge` sizing commands. The `# % ^` symbols require `\text`
+
+R LaTeX Syntax | Result
+-------- | ------ 
+`$\tiny +$ $\tiny -$ $\tiny /$ $\tiny *$ $\tiny =$` | $\tiny +$ $\tiny -$ $\tiny /$ $\tiny *$ $\tiny =$   
+`$\tiny <>$ $\tiny =>$ $\tiny =<$ $\tiny ~$ $\tiny !$` | $\tiny <>$ $\tiny =>$ $\tiny =<$ $\tiny ~$ $\tiny !$   
+`$\tiny \text #$  $\tiny \text %$ $\tiny \text ^$ ` |   $\tiny \text #$  $\tiny \text %$ $\tiny \text ^$ 
+`$\Huge +$ $\Huge -$ $\Huge /$ $\Huge *$ $\Huge =$` | $\Huge +$ $\Huge -$ $\Huge /$ $\Huge *$ $\Huge =$   
+`$\Huge <>$ $\Huge =>$ $\Huge =<$ $\Huge ~$ $\Huge !$` | $\Huge <>$ $\Huge =>$ $\Huge =<$ $\Huge ~$ $\Huge !$   
+`$\Huge \text #$  $\Huge \text \text %$ $\Huge \text ^$` |   $\Huge \text #$  $\Huge \text %$ $\Huge \text ^$ 
+
+[Top](#top)   
+
+### Unary Operators using LaTeX
+
+Description | R LaTeX Syntax | Result
+-----| -------- | ------ 
+plus | `$+$` | $+$
+minus | `$-$` | $-$
+factorial | `$!$` | $!$
+primorial | `$\#$` | $\#$
+negation | `$-$` | $-$
+not| `$\neg$` | $\neg$
+
+### Binary Operators using LaTeX
+
+Description | R LaTeX Syntax | Result
+-----| -------- | ------ 
+plus or minus | `$\pm$` | $\pm$
+minus or plus | `$\mp$` | $\mp$
+mulitplied by | `$\times$` | $\times$
+divided by | `$\div$` | $\div$
+asterisk | `$\ast$` | $*$
+star | `$\star$` | $\star$
+dagger | `$\dagger$` | $\dagger$
+double dagger | `$\ddagger$` | $\ddagger$
+set intersection | `$\cap$` | $\cap$
+set union | `$\cup$` | $\cup$
+set difference | `$\setminus$` | $\setminus$
+multiset addition | `$\uplus$` | $\uplus$
+square cap | `$\sqcap$` | $\sqcap$
+square cup | `$\sqcup$` | $\sqcup$
+logical or | `$\vee$` | $\vee$
+logical and | `$\wedge$` | $\wedge$
+cdot | `$\cdot$` | $\cdot$
+diamond | `$\diamond$` | $\diamond$
+big triangle up | `$\bigtriangleup$` | $\bigtriangleup$
+big triangle down | `$\bigtriangledown$` | $\bigtriangledown$
+triangle left | `$\triangleleft$` | $\triangleleft$
+triangle right | `$\triangleright$` | $\triangleright$
+big circle | `$\bigcirc$` | $\bigcirc$
+circle | `$\circ$` | $\circ$
+bullet | `$\bullet$` | \$\bullet$
+wr | `$\wr$` | $\wr$
+o plus | `$\oplus$` | $\oplus$
+o minus | `$\ominus$` | $\ominus$
+o times | `$\otimes$` | $\otimes$
+o slash | `$\oslash$` | $\oslash$
+o dot  | `$\odot$` | $\odot$
+?? | `$\amalg$` | $\amalg$
+
+[Top](#top)
+
+### Negated Binary Operators
+
+Note multiple options for some operators. 
+
+Description | R LaTeX Syntax | Result
+-----| -------- | ------ 
+is not equal to | `$\ne$` | $\ne$
+is not less than | `$\nless$` | $\nless$
+is not less than or equal to | `$\nleq$` | $\nleq$
+is not less than or equal to | `$\nleqslant$` | $\nleqslant$
+is not less than or equal to | `$\nleqq$` | $\nleqq$
+is not less than or equal to | `$\lneq$` | $\lneq$
+is not less than or equal to | `$\lneqq$` | $\lneqq$
+is not less than or equal to | `$\lvertneqq$` | $\lvertneqq$
+is less than or similar to | `$\lnsim$` | $\lnsim$
+is less than or approximately equal to | `$\lnapprox$` | $\lnapprox$
+does not precede | `$\nprec$` | $\nprec$
+neither precedes or equals | `$\npreceq$` | $\npreceq$
+is not similar to  | `$\nsim$` | $\nsim$
+not a subset of or equal to | `$\nsubseteq$` | $\nsubseteq$
+not a subset of or equal to | `$\nsubseteqq$` | $\nsubseteqq$
+subset not equal to | `$\subsetneq$` | $\subsetneq$
+subset not equal to | `$\varsubsetneq$` | $\varsubsetneq$
+subset not equal to | `$\subsetneqq$` | $\subsetneqq$
+subset not equal to | `$\varsubsetneqq$` | $\varsubsetneqq$
+is not a member of | `$\notin$` | $\notin$
+is not greater than | `$\ngtr$` | $\ngtr$
+is not greater than or equal to | `$\ngeq$` | $\ngeq$
+is not greater than or eqaul to | `$\ngeqslant$` |  $\ngeqslant$
+is not greater than or equal to | `$\ngeqq$` | $\ngeqq$
+is greater than not equal to | `$\gneq$` | $\gneq$
+is greater than not equal to | `$\gvertneqq$` | $\gvertneqq$
+is greater than not similar to | `$\gnsim$` | $\gnsim$
+is greater than not approximate to | `$\gnapprox$` | $\gnapprox$
+does not succeed | `$\nsucc$` | $\nsucc$
+neither succeeds or equals | `$\nsucceq$` | $\nsucceq$
+succeeds but does not equal | `$\succneqq$` |  $\succneqq$
+succeeds but is not similar to |  `$\succnsim$` |  $\succnsim$
+succeeds but is not approximate to | `$\succnapprox$` | $\succnapprox$
+is not congruent to | `$\ncong$` |  $\ncong$
+is not parallel to | `$\nparallel$`  |  $\nparallel$
+not a superset of or equal to | `$\nsupseteq$`  |  $\nsupseteq$
+not a superset of or equal to | `$\nsupseteqq$` |  $\nsupseteqq$
+superset of not equal to | `$\supsetneq$`  |  $\supsetneq$
+superset of not equal to |  `$\varsupsetneq$` |  $\varsupsetneq$
+superset of not equal to |  `$\supsetneqq$` |  $\supsetneqq$
+superset of not equal to |  `$\varsupsetneqq$` |  $\varsupsetneqq$
+
+
+
+[Top](#top)
+
+## Brackets 
+
+text: (something) or [something] or {something}   
+code delimiters: `(something)` or `[something]` or `{something}`   
+inline keyboard:  $(something)$ or $[something]$ or `$\{something\}$` to produce $\{something\}$     
+
+[Top](#top)   
+
+### LaTeX - Parentheses Sizing and Type
+
+Sizes: `$\big( \Big( \bigg( \Bigg( \large( \Large( \LARGE( \huge( \Huge($  |  `$\big( \Big( \bigg( \Bigg( \large( \Large( \LARGE(  \huge( \Huge($    
+Note the `\big` syntax applies to the parenthesis character immediately following. The math expression inside remains the same size. At times desirable; most times not.
+
+Applying the `\large and \huge` syntax results in equal sizing to both the parenthesis and the math expressions within them. LaTeX instructions are to use the  `\left` and `\right` commands before the braces. As the display table for Square brackets illustrates, leaving these out has no impact in rmarkdown. 
+
+Each table below illustrates display results from both types of syntax.
+
+#### Parentheses  
+
+R LaTeX Syntax | Result
+-------- | ------
+`$\big( 3x+7 \big)$`  |  $\big( 3x+7 \big)$   
+`$\Big( 3x+7 \Big)$`   |  $\Big( 3x+7 \Big)$   
+`$\bigg( 3x+7 \bigg)$`  |  $\bigg( 3x+7 \bigg)$   
+`$\Bigg( 3x+7 \Bigg)$`  |  $\Bigg( 3x+7 \Bigg)$   
+`$\large \left ( 3x+7 \right)$` | $\large \left ( 3x+7 \right)$
+`$\Large \left ( 3x+7 \right)$` | $\Large \left ( 3x+7 \right)$
+`$\LARGE \left ( 3x+7 \right)$` | $\LARGE \left ( 3x+7 \right)$
+`$\huge \left ( 3x+7 \right)$` | $\huge \left ( 3x+7 \right)$
+`$\Huge \left ( 3x+7 \right)$` | $\Huge \left ( 3x+7 \right)$
+
+[Top](#top)
+
+#### Square Brackets
+
+Note the successful omission of `\left` and `\right`
+
+R LaTeX Syntax | Result
+-------- | ------
+`$\big[ 3x+7 \big]$`  |  $\big[ 3x+7 \big]$      
+`$\Big[ 3x+7 \Big]$`   |  $\Big[ 3x+7 \Big]$   
+`$\bigg[ 3x+7 \bigg]$`   |  $\bigg[ 3x+7 \bigg]$   
+`$\Bigg[ 3x+7 \Bigg]$`   |  $\Bigg[ 3x+7 \Bigg]$    
+`$\large [ 3x+7 ]$` | $\large [ 3x+7 ]$
+`$\Large [ 3x+7 ]$` | $\Large [ 3x+7 ]$
+`$\LARGE [ 3x+7 ]$` | $\LARGE [ 3x+7 ]$
+`$\huge [ 3x+7 ]$` | $\huge [ 3x+7 ]$
+`$\Huge [ 3x+7 ]$` | $\Huge [ 3x+7 ]$
+
+[Top](#top)
+
+#### Curly Brackets
+
+Note {} brackets require escape backslash `\`   
+
+R LaTeX Syntax | Result
+-------- | ------
+`$\big\{ 3x+7 \big\}$`  |  $\big\{ 3x+7 \big\}$   
+`$\Big\{ 3x+7 \Big\}$`  |  $\Big\{ 3x+7 \Big\}$   
+`$\bigg\{ 3x+7 \bigg\}$`  |  $\bigg\{ 3x+7 \bigg\}$   
+`$\Bigg\{ 3x+7 \Bigg\}$`  |  $\Bigg\{ 3x+7 \Bigg\}$   
+`$\large \{ 3x+7 \right\}$` | $\large \left \{ 3x+7 \right\}$
+`$\Large \left \{ 3x+7 \right\}$` | $\Large \left \{ 3x+7 \right\}$
+`$\LARGE \left \{ 3x+7 \right\}$` | $\LARGE \left \{ 3x+7  \right\}$
+`$\huge \left  \{ 3x+7 \\right\}$` | $\huge \left \{ 3x+7  \right\}$
+`$\Huge \left \{ 3x+7 \\right\}$` | $\Huge \left \{ 3x+7  \right\}$
+   
+
+[Top](#top)
+
+### Angle Brackets  
+
+Note use of `\langle` and `\rangle` for left and right side.  
+
+R LaTeX Syntax | Result
+-------- | ------
+`$\big \langle 3x+7 \big \rangle$`  |  $\big \langle 3x+7 \big \rangle$      
+`$\Big \langle 3x+7 \Big \rangle$`   |  $\Big \langle 3x+7 \Big \rangle$   
+`$\bigg \langle 3x+7 \Big \rangle$`   |  $\bigg \langle 3x+7 \Big \rangle$   
+`$\Bigg \langle 3x+7 \Bigg \rangle$`   |  $\Bigg \langle 3x+7 \Bigg \rangle$    
+`$\large \left \langle 3x+7 \right\rangle$` | $\large \left \langle 3x+7 \right\rangle$
+`$\Large \left \langle 3x+7 \right\rangle$` | $\Large \left \langle 3x+7 \right\rangle$
+`$\LARGE \left \langle 3x+7 \right\rangle$` | $\LARGE \left \langle 3x+7 \right\rangle$
+`$\huge \left \langle 3x+7 \right\rangle$` | $\huge \left \langle 3x+7 \right\rangle$
+`$\Huge \left \langle 3x+7 \right\rangle$` | $\Huge \left \langle 3x+7 \right\rangle$
+
+[Top](#top)   
+
+## Brackets with Fractions
+
+Note the use of `\displaystyle` to create even sized components of the fractions. Using `\Large` by itself results in larger display but uneven fractional components. Combining `\displaystyle \Large` or `\large` creates the desired result.
+
+Displaying fractions can be done with `\over` or `\frac {x}{y}`. `\over` works well with single fractions but not with formulas.
+
+R LaTeX Syntax | Result
+-------- | ------
+`$a \left( b \over c \right) = ab \over c$` | $a \left( b \over c \right) = ab \over c$ error
+`$\displaystyle a \left( \frac{b}{c} \right) = \frac {ab}{c}$` | $\displaystyle a \left( \frac{b}{c} \right) = \frac {ab}{c}$  
+`$\Large a \left( \frac{b}{c} \right)= \frac {ab}{c}$` | $\Large a \left( \frac{b}{c} \right)= \frac {ab}{c}$  
+`$\displaystyle \large a \left( \frac{b}{c} \right)= \frac {ab}{c}$` | $\displaystyle \large a \left( \frac{b}{c} \right)= \frac {ab}{c}$ 
+`$\displaystyle \Large a \left( \frac{b}{c} \right)= \frac {ab}{c}$` | $\displaystyle \Large a \left( \frac{b}{c} \right)= \frac {ab}{c}$ 
+
+
+## Select Greek Letters 
+
+### Small
+
+Description | R syntax | Result
+--------- | -------- | ------
+alpha  | `$\small \alpha$` | $\small \alpha$
+Alpha  | `$\small A$` | $\small A$  
+beta | `$\small \beta$` | $\small \beta$    
+Beta | `$\small B$` | $\small B$    
+gamma | `$\small \gamma$` | $\small \gamma$  
+Gamma | `$\small \Gamma$` | $\small \Gamma$
+delta | `$\small \delta$` | $\small \delta$   
+Delta | `$\small \Delta$` | $\small \Delta$
+epsilon | `$\small \epsilon$` | $\small \epsilon$   
+Epsilon | `$\small E$` | $\small E$
+zeta | `$\small \zeta$` | $\small \zeta$  
+Zeta | `$\small Z$` | $\small Z$   
+eta  |  `$\small \eta$`  | $\small \eta$   
+Eta  |  `$\small H$`  | $\small H$   
+theta  | `$\small \theta$` |  $\small \theta$   
+Theta  | `$\small \Theta$` |  $\small \Theta$
+lambda  | `$\small \lamda$` | $\small \lambda$ 
+Lambda  | `$\small \lamda$` | $\small \Lambda$   
+mu  | `$\small \mu$`  | $\small \mu$   
+Mu  | `$\small M$`  | $\small M$   
+nu  | `$\small \nu$`  | $\small \nu$   
+Nu  | `$\small N$`  | $\small N$   
+xi  | `$\small \xi$`  | $\small \xi$
+Xi  | `$\small \Xi$`  | $\small \Xi$
+pi | `$\small \pi$` | $\small \pi$
+Pi | `$\small \Pi$` | $\small \Pi$
+rho | `$\small \rho$`  | $\small \rho$   
+Rho | `$\small P$`  | $\small P$   
+sigma  | `$\small \sigma$`  | $\small \sigma$  
+Sigma  | `$\small \Sigma$`  | $\small \Sigma$  
+tau | `$\small \tau$` | $\small \tau$
+Tau | `$\small T$` | $\small T$  
+upsilon | `$\small \upsilon$` | $\small \upsilon$  
+Upsilon | `$\small \Upsilon$` | $\small \Upsilon$
+phi | `$\small \phi$` | $\small \phi$   
+Phi | `$\small \Phi$` | $\small \Phi$ 
+chi  | `$\small \chi$`   | $\small \chi$
+Chi  | `$\small X$`   | $\small X$
+psi | `$\small \psi$`   | $\small \psi$   
+Psi | `$\small \Psi$`   | $\small \Psi$   
+omega | `$\small \omega$` | $\small \omega$    
+Omega | `$\small \Omega$` | $\small \Omega$  
+
+[Top](#top)   
+
+### Large
+
+Description | R syntax | Result
+--------- | -------- | ------
+alpha  | `$\Large \alpha$` | $\Large \alpha$
+Alpha  | `$\Large A$` | $\Large A$  
+beta | `$\Large \beta$` | $\Large \beta$    
+Beta | `$\Large B$` | $\Large B$    
+gamma | `$\Large \gamma$` | $\Large \gamma$  
+Gamma | `$\Large \Gamma$` | $\Large \Gamma$
+delta | `$\Large \delta$` | $\Large \delta$   
+Delta | `$\Large \Delta$` | $\Large \Delta$
+epsilon | `$\Large \epsilon$` | $\Large \epsilon$   
+Epsilon | `$\Large E$` | $\Large E$
+zeta | `$\Large \zeta$` | $\Large \zeta$  
+Zeta | `$\Large Z$` | $\Large Z$   
+eta  |  `$\Large \eta$`  | $\Large \eta$   
+Eta  |  `$\Large H$`  | $\Large H$   
+theta  | `$\Large \theta$` |  $\Large \theta$   
+Theta  | `$\Large \Theta$` |  $\Large \Theta$
+lambda  | `$\Large \lamda$` | $\Large \lambda$ 
+Lambda  | `$\Large \lamda$` | $\Large \Lambda$   
+mu  | `$\Large \mu$`  | $\Large \mu$   
+Mu  | `$\Large M$`  | $\Large M$   
+nu  | `$\Large \nu$`  | $\Large \nu$   
+Nu  | `$\Large N$`  | $\Large N$   
+xi  | `$\Large \xi$`  | $\Large \xi$
+Xi  | `$\Large \Xi$`  | $\Large \Xi$
+pi | `$\Large \pi$` | $\Large \pi$
+Pi | `$\Large \Pi$` | $\Large \Pi$
+rho | `$\Large \rho$`  | $\Large \rho$   
+Rho | `$\Large P$`  | $\Large P$   
+sigma  | `$\Large \sigma$`  | $\Large \sigma$  
+Sigma  | `$\Large \Sigma$`  | $\Large \Sigma$  
+tau | `$\Large \tau$` | $\Large \tau$
+Tau | `$\Large T$` | $\Large T$  
+upsilon | `$\Large \upsilon$` | $\Large \upsilon$  
+Upsilon | `$\Large \Upsilon$` | $\Large \Upsilon$
+phi | `$\Large \phi$` | $\Large \phi$   
+Phi | `$\Large \Phi$` | $\Large \Phi$ 
+chi  | `$\Large \chi$`   | $\Large \chi$
+Chi  | `$\Large X$`   | $\Large X$
+psi | `$\Large \psi$`   | $\Large \psi$   
+Psi | `$\Large \Psi$`   | $\Large \Psi$   
+omega | `$\Large \omega$` | $\Large \omega$    
+Omega | `$\Large \Omega$` | $\Large \Omega$  
+
+[Top](#top)   
+
+## Select Symbols and Operators
+  
+
+### Small
+
+Description | R syntax | Result
+--------- | -------- | ------
+infinity | `$\small  \ \infty$`  |  $\small  \infty$ 
+for all | `$\small  \forall$`  |  $\small  \forall$   
+exists | `$\small  \exists$`  |  $\small  \exists$   
+not exists | `$\small  \nexists$`  |  $\small  \nexists$   
+partial | `$\small  \partial$`  |  $\small  \partial$  
+emptyset | `$\small  \emptyset$`  |  $\small  \emptyset$   
+null nothing | `$\small  \varnothing$`  |  $\small  \varnothing$   
+complement | `$\small  \complement$`  |  $\small  \complement$   
+negation:  | `$\small  \neg$`  |  $\small  \neg$   
+continuation | `$\small  \cdots$`  |  $\small  \cdots$   
+surd | `$\small  \surd$`  |  $\small  \surd$   
+union | `$\small  A \cup B$` |   $\small  A \cup B$
+intersect | `$\small  A \cap B$` |      $\small  A \cap B$     
+not equal | `$\small  \neq$` |      $\small  \neq$
+less than or equal to | `$\small  \leq$`  |     $\small  \leq$   
+greater than or equal to | `$\small  \geq$` |     $\small  \geq$   
+in | `$\small  \in$`   |   $\small  \in$  
+not in | `$\small  \notin$` |  $\small  \notin$      
+perpendicular | `$\small  \perp$`  |    $\small  \perp$   
+subset | `$\small  \subset$`  |     $\small  \subset$   
+similar or equal to | `$\small  \simeq$`  |     $\small  \simeq$  
+approximates | `$\small  \approx$`  |     $\small  \approx$    
+equivalence / identical to | `$\small  \equiv$`   |    $\small  \equiv$   
+congruent | `$\small  \cong$`  |     $\small  \cong$   
+
+[Top](#top)   
+
+### Large
+
+Description | R syntax | Result
+--------- | -------- | ------
+infinity | `$\Large  \infty$`  |  $\Large  \infty$ 
+for all | `$\Large  \forall$`  |  $\Large  \forall$   
+exists | `$\Large  \exists$`  |  $\Large  \exists$   
+not exists | `$\Large  \nexists$`  |  $\Large  \nexists$   
+partial | `$\Large  \partial$`  |  $\Large  \partial$  
+emptyset | `$\Large  \emptyset$`  |  $\Large  \emptyset$   
+null nothing | `$\Large  \varnothing$`  |  $\Large  \varnothing$   
+complement | `$\Large  \complement$`  |  $\Large  \complement$   
+negation:  | `$\Large  \neg$`  |  $\Large  \neg$   
+continuation | `$\Large  \cdots$`  |  $\Large  \cdots$   
+surd | `$\Large  \surd$`  |  $\Large  \surd$   
+union | `$\Large  A \cup B$` |   $\Large  A \cup B$
+intersect | `$\Large  A \cap B$` |      $\Large  A \cap B$     
+not equal | `$\Large  \neq$` |      $\Large  \neq$
+less than or equal to | `$\Large  \leq$`  |     $\Large  \leq$   
+greater than or equal to | `$\Large  \geq$` |     $\Large  \geq$   
+in | `$\Large  \in$`   |   $\Large  \in$  
+not in | `$\Large  \notin$` |  $\Large  \notin$      
+perpendicular | `$\Large  \perp$`  |    $\Large  \perp$   
+subset | `$\Large  \subset$`  |     $\Large  \subset$   
+similar or equal to | `$\Large  \simeq$`  |     $\Large  \simeq$  
+approximates | `$\Large  \approx$`  |     $\Large  \approx$    
+equivalence / identical to | `$\Large  \equiv$`   |    $\Large  \equiv$   
+congruent | `$\Large  \cong$`  |     $\Large  \cong$    
+
+[Top](#top)    
+
+
+References
+==========
+http://johnmacfarlane.net/pandoc/demo/example9/pandocs-markdown.html   
+http://tutorial.math.lamar.edu/pdf/Algebra_Cheat_Sheet.pdf   
+http://oeis.org/wiki/List_of_LaTeX_mathematical_symbols    
+http://texblog.org/2007/08/27/number-sets-prime-natural-integer-rational-real-and-complex-in-latex/
+http://en.wikipedia.org/wiki/Unary_operation   
+http://en.wikipedia.org/wiki/Binary_operation   
+https://www.sharelatex.com/learn/Brackets_and_Parentheses#Introduction   
+http://www.math.uiuc.edu/~hildebr/tex/course/intro2.html
+http://simple.wikipedia.org/wiki/Exponent   
+http://legacy.earlham.edu/~peters/writing/infapp.htm (notes on sets)   
+https://www.khanacademy.org/math/probability/independent-dependent-probability/basic_set_operations/v/subset-strict-subset-and-superset
+
+Dev Notes
+=========
+While the double dollar sign (still) works in LaTeX, it is not part of the "official" LaTeX command set (in fact, most books on LaTeX don't even mention it) and its use is discouraged. Use the bracket pair `\[, \]` instead.) see - http://tex.stackexchange.com/questions/503/why-is-preferable-to
+ 
+TODO: create Notation-Algebra; Notation-Formula (Stat, Geometry, Algebra, Probability); Notation - Calculus
+
+```{r sessioninfo}
+sessionInfo()
+```
+
+May you do good and not evil.   
+May you find forgiveness for yourself and forgive others.   
+May you share freely, never taking more than you give.   
+
+
+
